@@ -1,27 +1,23 @@
 # RealWonder: Real-Time Physical Action-Conditioned Video Generation
 
-**[Project Page](https://liuwei283.github.io/RealWonder/) | [arXiv](https://arxiv.org/abs/XXXX.XXXXX)**
+<div align="center">
 
----
+[![Website](https://img.shields.io/badge/Website-RealWonder-blue)](https://liuwei283.github.io/RealWonder/)
+[![arXiv](https://img.shields.io/badge/arXiv-2603.05449-red)](https://arxiv.org/abs/2603.05449)
+[![twitter](https://img.shields.io/twitter/url?label=TL:DR&url=https%3A%2F%2Ftwitter.com%)](https://x.com/Koven_Yu/status/2029745851095290293?s=20)
+</div>
 
-[Wei Liu](https://liuwei283.github.io/)<sup>1\*</sup> &nbsp;
-[Ziyu Chen](https://ziyc.github.io/)<sup>1\*</sup> &nbsp;
-[Zizhang Li](https://kyleleey.github.io/)<sup>1</sup> &nbsp;
-[Yue Wang](https://yuewang.xyz/)<sup>2</sup> &nbsp;
-[Hong-Xing (Koven) Yu](https://kovenyu.com/)<sup>1†</sup> &nbsp;
-[Jiajun Wu](https://jiajunwu.com/)<sup>1†</sup>
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/afe46b79-51e5-4b52-8fa7-782ae4ddda86" width="80%" style="max-width: 100%; height: auto;" />
+</p>
 
-<sup>1</sup>Stanford University &nbsp; <sup>2</sup>University of Southern California &nbsp; <sup>\*</sup>Equal contribution &nbsp; <sup>†</sup>Equal advising
-
----
-
-## Abstract
+## About
 
 Current video generation models cannot simulate physical consequences of 3D actions like forces and robotic manipulations, as they lack structural understanding of how actions affect 3D scenes. We present RealWonder, the first real-time system for action-conditioned video generation from a single image. Our key insight is using physics simulation as an intermediate bridge: instead of directly encoding continuous actions, we translate them through physics simulation into visual representations (optical flow and RGB) that video models can process. RealWonder integrates three components: 3D reconstruction from single images, physics simulation, and a distilled video generator requiring only 4 diffusion steps. Our system achieves 13.2 FPS at 480×832 resolution, enabling interactive exploration of forces, robot actions, and camera controls on rigid objects, deformable bodies, fluids, and granular materials.
 
-![Teaser](assets/teaser.jpeg)
+> **RealWonder: Real-Time Physical Action-Conditioned Video Generation** <br> [Project Page](https://liuwei283.github.io/RealWonder/) | [Paper](https://arxiv.org/abs/2603.05449) <br> [Wei Liu](https://liuwei283.github.io/)\*, [Ziyu Chen](https://ziyc.github.io/)\*, [Zizhang Li](https://kyleleey.github.io/), [Yue Wang](https://yuewang.xyz/), [Hong-Xing (Koven) Yu](https://kovenyu.com/)†, [Jiajun Wu](https://jiajunwu.com/)† <br> Stanford University, University of Southern California <br> \*Equal contribution &nbsp; †Equal advising
 
----
+<!-- ![Teaser](assets/teaser.jpeg) -->
 
 ## Installation
 
@@ -86,8 +82,6 @@ hf download ziyc/realwonder --include "Realwonder-Distilled-AR-I2V-Flow/*" --loc
 hf download alibaba-pai/Wan2.1-Fun-V1.1-1.3B-InP --local-dir wan_models/Wan2.1-Fun-V1.1-1.3B-InP
 ```
 
----
-
 ## Usage
 
 ### Interactive Demo (Real-Time UI)
@@ -109,12 +103,6 @@ python app.py \
     --checkpoint_path /path/to/checkpoint.pt
 ```
 
-<table align="center"><tr>
-  <td><video src="https://github.com/user-attachments/assets/97fa7a0f-9122-40c7-a13f-92d72de82542" controls></video></td>
-  <td><video src="https://github.com/user-attachments/assets/e9dadbad-7e76-4e82-94d1-eaf1d0c48c38" controls></video></td>
-</tr></table>
-
-
 ### Offline Inference
 
 Run physics simulation:
@@ -132,8 +120,6 @@ python infer_sim.py \
     --output_path result/lamp/final_sim/final.mp4
 ```
 
----
-
 ## Citation
 
 ```bibtex
@@ -141,9 +127,9 @@ python infer_sim.py \
   title={RealWonder: Real-Time Physical Action-Conditioned Video Generation},
   author={Liu, Wei and Chen, Ziyu and Li, Zizhang and Wang, Yue and Yu, Hong-Xing and Wu, Jiajun},
   year={2026},
-  eprint={XXXX.XXXXX},
+  eprint={2603.05449},
   archivePrefix={arXiv},
   primaryClass={cs.CV},
-  url={https://arxiv.org/abs/XXXX.XXXXX},
+  url={https://arxiv.org/abs/2603.05449},
 }
 ```
