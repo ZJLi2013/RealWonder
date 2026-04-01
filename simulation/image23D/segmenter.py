@@ -220,7 +220,7 @@ class RepViTSegmenter:
 class SegmentAnythingSegmenter:
     def __init__(self, config, device="cuda"):
         self.device = device
-        self.sam2_checkpoint = "/svl/u/wliu283/projects/wonder_play/i2v/flex-forcing/submodules/sam2/checkpoints/sam2.1_hiera_large.pt"
+        self.sam2_checkpoint = os.path.join(os.path.dirname(__file__), "../../submodules/sam2/checkpoints/sam2.1_hiera_large.pt")
         self.model_cfg = "configs/sam2.1/sam2.1_hiera_l.yaml"
         self.config = config
 
