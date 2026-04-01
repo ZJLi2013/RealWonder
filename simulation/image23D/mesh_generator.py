@@ -6,13 +6,17 @@ if 'kaolin' not in sys.modules:
     _k.visualize = types.ModuleType('kaolin.visualize')
     _k.render = types.ModuleType('kaolin.render')
     _k.render.camera = types.ModuleType('kaolin.render.camera')
+    _k.utils = types.ModuleType('kaolin.utils')
+    _k.utils.testing = types.ModuleType('kaolin.utils.testing')
     _k.visualize.IpyTurntableVisualizer = type('IpyTurntableVisualizer', (), {})
     _k.render.camera.Camera = type('Camera', (), {})
     _k.render.camera.CameraExtrinsics = type('CameraExtrinsics', (), {})
     _k.render.camera.PinholeIntrinsics = type('PinholeIntrinsics', (), {})
+    _k.utils.testing.check_tensor = lambda *a, **kw: None
     for _name, _mod in [
         ('kaolin', _k), ('kaolin.visualize', _k.visualize),
         ('kaolin.render', _k.render), ('kaolin.render.camera', _k.render.camera),
+        ('kaolin.utils', _k.utils), ('kaolin.utils.testing', _k.utils.testing),
     ]:
         sys.modules[_name] = _mod
 
