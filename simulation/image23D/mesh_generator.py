@@ -1,3 +1,21 @@
+import sys
+import types
+
+if 'kaolin' not in sys.modules:
+    _k = types.ModuleType('kaolin')
+    _k.visualize = types.ModuleType('kaolin.visualize')
+    _k.render = types.ModuleType('kaolin.render')
+    _k.render.camera = types.ModuleType('kaolin.render.camera')
+    _k.visualize.IpyTurntableVisualizer = type('IpyTurntableVisualizer', (), {})
+    _k.render.camera.Camera = type('Camera', (), {})
+    _k.render.camera.CameraExtrinsics = type('CameraExtrinsics', (), {})
+    _k.render.camera.PinholeIntrinsics = type('PinholeIntrinsics', (), {})
+    for _name, _mod in [
+        ('kaolin', _k), ('kaolin.visualize', _k.visualize),
+        ('kaolin.render', _k.render), ('kaolin.render.camera', _k.render.camera),
+    ]:
+        sys.modules[_name] = _mod
+
 from submodules.sam_3d_objects.notebook.inference import Inference
 import numpy as np
 import torch
